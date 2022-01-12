@@ -9,10 +9,8 @@
     <sixth-question @nextstep="nextstep" v-if="gamedata.step == 6"></sixth-question>
 
 
-    <div class="stars-container row-center">
-      <i class="nes-icon is-large star is-empty" v-for="(pos,key) in gamedata.TOTAL" :key="key">
-        {{pos}}
-      </i>
+    <div class="stars-container row-around nes-container is-rounded" v-if="gamedata.step != 0">
+      <i :class="['nes-icon', 'star', 'is-medium', (gamedata.step <= pos) ? 'is-transparent' : '']" v-for="(pos,key) in gamedata.TOTAL" :key="key"></i>
     </div>
 
 

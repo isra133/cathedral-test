@@ -4,9 +4,6 @@ $orange : #fc6619;
 
 .wrapper{
     background:url(/img/background.jpg) center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     min-height: 100vh;   
 }
@@ -135,4 +132,13 @@ $orange : #fc6619;
         }
     }
 }
+
+.stars-container.nes-container{
+    width: 100%;
+    margin-top: 40px;
+    max-width: 768px;
+    background: white;
+}
+
+
 

@@ -3,7 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     game : {
-      step : 6,
+      step : 0,
       TOTAL : 10
     }
   },
