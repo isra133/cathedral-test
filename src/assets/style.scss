@@ -1,0 +1,138 @@
+
+$purple : #4d2473;
+$orange : #fc6619;
+
+.wrapper{
+    background:url(/img/background.jpg) center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;   
+}
+
+.title{
+    font-family: 'Press Start 2P', cursive;
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+
+.nes-btn{
+    text-transform: uppercase;
+    font-size: 24px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.lom-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 180px;
+    .nes-btn{
+        margin-top: 40px;
+    }
+}
+
+
+.lom{
+    width: 400px;
+    height: 290px;
+    padding: 0 20px;
+    background: url(/img/lom-background.jpg) center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    border: 4px solid white;
+    img{
+        max-width: 100%;
+    }
+
+    .bubble{
+        transform: translate(70%,-80%);
+    }
+}
+
+
+.bubble{
+    width: 100%;
+    max-width: 560px;
+    padding: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: white;
+    text-align: left;
+
+    p{
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+}
+
+.question-container{
+    width: 100%;
+    background: white;
+    max-width: 768px;
+    .question-title{
+        text-align: left;
+        display: inline-block;
+        margin-bottom: 15px;
+        display: inline-block;
+        width: 100%;
+        margin-top: 50px;
+    }
+
+    select{
+        font-size: 20px;
+        option{
+            color:#444;
+        }
+    }
+
+
+    .nes-field{
+        text-align: left;
+        font-size: 18px;
+    }
+
+    .nes-btn{
+        margin-top: 50px;
+    }
+
+    .question-list{
+        width: 100%;
+        display: inline-block;
+        text-align: left;
+        padding-left: 20px;
+
+        li{
+            font-size: 20px;
+        }
+    }
+
+    .img-options{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .nes-container{
+            width: calc(50% - 20px);
+            margin-bottom: 20px;
+            padding-bottom: 0;
+
+            img{
+                max-width: 150px;
+                transform: translateY(4px);
+            }
+        }
+    }
+
+    .radio-container{
+        label{
+            font-size: 20px;
+            margin-right: 15px;
+        }
+    }
+}
+
