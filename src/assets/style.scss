@@ -1,42 +1,43 @@
+$purple: #4d2473;
+$orange: #fc6619;
 
-$purple : #4d2473;
-$orange : #fc6619;
-
-.wrapper{
-    background:url(/img/background.jpg) center/cover no-repeat;
+.wrapper {
+    background: url(/img/background.jpg) center/cover no-repeat;
     width: 100%;
-    min-height: 100vh;   
+    min-height: 100vh;
+    padding: 15px;
 }
 
-.title{
-    font-family: 'Press Start 2P', cursive;
+.title {
+    font-family: "Press Start 2P", cursive;
     font-size: 28px;
     margin-bottom: 10px;
 }
 
-
-.nes-btn{
+.nes-btn {
     text-transform: uppercase;
     font-size: 24px;
-    font-family: 'Press Start 2P', cursive;
+    font-family: "Press Start 2P", cursive;
+    &.is-disabled {
+        pointer-events: none;
+    }
 }
 
-.nes-btn.reset-game{
+.nes-btn.reset-game {
     margin-top: 30px;
 }
 
-.lom-container{
+.lom-container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding-top: 180px;
-    .nes-btn{
+    .nes-btn {
         margin-top: 40px;
     }
 }
 
-
-.lom{
+.lom {
     width: 400px;
     height: 290px;
     padding: 0 20px;
@@ -47,21 +48,20 @@ $orange : #fc6619;
     justify-content: center;
     border: 4px solid white;
 
-    &[error=true]{
+    &[error="true"] {
         background: url(/img/lom-error-background.jpg) center/cover no-repeat;
     }
 
-    img{
+    img {
         max-width: 100%;
     }
 
-    .bubble{
-        transform: translate(70%,-80%);
+    .bubble {
+        transform: translate(70%, -80%);
     }
 }
 
-
-.bubble{
+.bubble {
     width: 100%;
     max-width: 560px;
     padding: 20px;
@@ -71,17 +71,17 @@ $orange : #fc6619;
     background: white;
     text-align: left;
 
-    p{
+    p {
         margin-bottom: 10px;
         font-size: 18px;
     }
 }
 
-.question-container{
+.question-container {
     width: 100%;
     background: white;
     max-width: 768px;
-    .question-title{
+    .question-title {
         text-align: left;
         display: inline-block;
         margin-bottom: 15px;
@@ -90,39 +90,38 @@ $orange : #fc6619;
         margin-top: 20px;
     }
 
-    select{
+    select {
         font-size: 20px;
-        option{
-            color:#444;
+        option {
+            color: #444;
         }
     }
 
-
-    .nes-field{
+    .nes-field {
         text-align: left;
         font-size: 18px;
     }
 
-    .nes-btn{
+    .nes-btn {
         margin-top: 50px;
     }
 
-    .question-list{
+    .question-list {
         width: 100%;
         display: inline-block;
         text-align: left;
         padding-left: 20px;
 
-        li{
+        li {
             font-size: 20px;
         }
     }
 
-    .img-options{
+    .img-options {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        .nes-container{
+        .nes-container {
             width: calc(50% - 20px);
             margin-bottom: 20px;
             padding-bottom: 0;
@@ -131,40 +130,40 @@ $orange : #fc6619;
             overflow: hidden;
             background: #140019;
 
-            &::before{
+            &::before {
                 position: absolute;
                 left: 0;
                 top: 0;
                 opacity: 0;
                 background: url(/img/lom-background.jpg) center/cover no-repeat;
-                content:'';
+                content: "";
                 display: inline-block;
                 width: 100%;
                 height: 100%;
-                transition: .7s;
+                transition: 0.7s;
                 transform: scale(1.1);
             }
 
-            &:hover::before{
+            &:hover::before {
                 opacity: 1;
             }
 
-            img{
+            img {
                 max-width: 140px;
                 transform: translateY(4px);
             }
         }
     }
 
-    .radio-container{
-        label{
+    .radio-container {
+        label {
             font-size: 20px;
             margin-right: 15px;
         }
     }
 
-    .hidden-word{
-        span{
+    .hidden-word {
+        span {
             text-transform: uppercase;
             font-size: 60px;
             margin: 0 5px;
@@ -172,7 +171,7 @@ $orange : #fc6619;
     }
 }
 
-.stars-container.nes-container{
+.stars-container.nes-container {
     width: 100%;
     margin-top: 40px;
     max-width: 768px;
@@ -180,7 +179,7 @@ $orange : #fc6619;
 }
 
 .card-container {
-    .card{
+    .card {
         width: 50px;
         height: 50px;
         border: 4px solid black;
@@ -189,18 +188,18 @@ $orange : #fc6619;
         justify-content: center;
         align-items: center;
         font-size: 50px;
-        &:first-of-type{
+        &:first-of-type {
             margin-left: 0;
         }
     }
 }
 
-.hearts-container{
+.hearts-container {
     display: inline-block;
     width: auto;
     position: relative;
 
-    .win{
+    .win {
         position: absolute;
         z-index: 5;
         width: 65px;
@@ -211,13 +210,13 @@ $orange : #fc6619;
         outline: none;
         background: transparent;
         border-radius: 50%;
-        &[show=true]{
-            border: 3px solid #FFFFFF;
-            background: rgba(0,0,0,.1);
+        &[show="true"] {
+            border: 3px solid #ffffff;
+            background: rgba(0, 0, 0, 0.1);
         }
     }
 
-    .lose{
+    .lose {
         position: absolute;
         left: 0;
         top: 0;
@@ -228,13 +227,119 @@ $orange : #fc6619;
         background: transparent;
     }
 
-    img{
+    img {
         max-width: 100%;
     }
 }
 
-.buttons-container{
-    .nes-btn{
+.buttons-container {
+    .nes-btn {
         margin: 0 20px;
+    }
+}
+
+@media screen and (max-width: 970px) {
+    .lom .bubble {
+        transform: translate(-20%, -100%);
+        &::before,
+        &::after {
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .card-container {
+        justify-content: space-around;
+    }
+
+    .card-container .card {
+        margin-bottom: 10px;
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .wrapper {
+        overflow: scroll;
+    }
+
+    .stars-container.nes-container {
+        max-width: 400px;
+
+        .star {
+            margin: 5px;
+            transform: scale(2);
+            width: 50px;
+            height: 50px;
+        }
+    }
+
+    .lom-container {
+        padding-top: 400px;
+    }
+
+    .lom {
+        width: 100%;
+        max-width: 400px;
+        height: 200px;
+        img {
+            filter: drop-shadow(2px 4px 10px rgba(0, 0, 0, 0.8));
+            position: relative;
+            z-index: 3;
+        }
+    }
+
+    .lom .bubble {
+        transform: translateY(-110%);
+        width: 100%;
+        max-width: 400px;
+        left: 0;
+        right: auto;
+        margin-left: 0;
+    }
+
+    .title {
+        font-size: 22px;
+    }
+
+    .question-container .question-title {
+        line-height: 1.1em;
+        font-size: 20px;
+    }
+
+    .question-container .nes-btn {
+        margin-top: 30px;
+    }
+
+    .nes-btn {
+        font-size: 16px;
+    }
+
+    .question-container .img-options .nes-container {
+        width: calc(50% - 10px);
+        position: relative;
+        height: 120px;
+        img {
+            max-width: 140px;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .hearts-container img {
+        width: 200px;
+    }
+
+    .hearts-container .win {
+        width: 40px;
+        height: 40px;
+        top: 79px;
+        right: 14px;
     }
 }

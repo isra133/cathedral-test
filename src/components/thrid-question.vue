@@ -15,7 +15,7 @@
           </div>
 
 
-        <button class="nes-btn" @click="validate">
+        <button :class="['nes-btn',(result.length <= 3) ? 'is-disabled' : '']" @click="validate">
             Validar
         </button>
         

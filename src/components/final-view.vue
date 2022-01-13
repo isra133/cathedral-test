@@ -13,7 +13,7 @@
 
             <div class="bubble nes-balloon from-left" v-if="gamedata.results.some(e => !!!e)">
                 <h2 class="title">Una pena...</h2>
-                <p>Tus conocimientos no han sido suficientes como para salvar la humanidad</p>
+                <p>Tus conocimientos no han sido suficientes como para salvar a la humanidad</p>
             </div>
 
         </div>

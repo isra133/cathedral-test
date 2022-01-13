@@ -30,7 +30,7 @@
         </h3>
 
 
-        <button class="nes-btn" @click="validate" v-if="!showresult">
+        <button :class="['nes-btn',(result.length <= 3) ? 'is-disabled' : '']" @click="validate" v-if="!showresult">
             Validar
         </button>
 
@@ -59,7 +59,7 @@
         methods: {
             ...mapActions(['setFail', 'setWin']),
             setGame() {
-                const HIDDENPERCENT = 0.4;
+                const HIDDENPERCENT = 0.3;
                 this.selected = this.options[Math.floor(Math.random() * (this.options.length))];
                 let wordshidden = (Math.floor(this.selected.length * HIDDENPERCENT) > 1) ? Math.floor(this.selected.length * HIDDENPERCENT) : 1;
                 let complete = false;

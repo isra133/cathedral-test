@@ -102,6 +102,7 @@
             transform: translate(-50%,-50%);
             transition:.8s;
             transition-timing-function: ease-in-out;
+            border: 1px solid red;
         }
 
         &[cinemamode="false"]{
@@ -116,4 +117,19 @@
 
         
     }
+
+
+    @media screen and (max-width:1200px){
+        .death-view video{
+            width: 90vw;
+            height: 51vw;
+        }
+
+        .death-view[cinemamode=false] video{
+            transform: translate(-50%, -1000px);
+        }
+
+        
+    }
+
 </style>

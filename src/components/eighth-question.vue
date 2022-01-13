@@ -17,7 +17,7 @@
         </div>
 
 
-        <button class="nes-btn" @click="validate">
+        <button :class="['nes-btn',(!result) ? 'is-disabled' : '']" @click="validate">
             Validar
         </button>
 
@@ -40,12 +40,12 @@
             ...mapActions(['setFail', 'setWin']),
             validate() {
 
-                let result = Number(this.result.replace(",","."));
+                let result = Number(this.result.replace(",", "."));
 
 
                 if (result >= 215.4 && result < 215.5) {
                     this.setWin(7);
-                }else{
+                } else {
                     this.setFail(7);
                 }
             }
@@ -55,38 +55,49 @@
 
 
 <style lang="scss" scoped>
-
-    .triangle-container{
+    .triangle-container {
         position: relative;
         display: inline-block;
         margin-bottom: 50px;
-    
 
-        .left{
+
+        .left {
             position: absolute;
-            left:-40px;
-            top:50%;
-            font-size:18px;
-            transform:translateY(-50%);
+            left: -40px;
+            top: 50%;
+            font-size: 18px;
+            transform: translateY(-50%);
             font-family: 'Press Start 2P', cursive;
         }
 
-        .bottom{
+        .bottom {
             position: absolute;
-            left:50%;
-            bottom:-25px;
-            font-size:18px;
-            transform:translateX(-50%);
+            left: 50%;
+            bottom: -25px;
+            font-size: 18px;
+            transform: translateX(-50%);
             font-family: 'Press Start 2P', cursive;
         }
 
     }
 
-    .triangle{
+    .triangle {
         width: 200px;
         height: 80px;
         background: #4d2473;
         display: inline-block;
         clip-path: polygon(0 0, 0% 100%, 100% 100%);
+    }
+
+    @media screen and (max-width:420px) {
+
+        .triangle-container .left{
+            left: -30px;
+        }
+
+        .triangle-container .left,
+        .triangle-container .bottom {
+            font-size: 16px;
+        }
     }
 </style>

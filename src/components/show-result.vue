@@ -213,4 +213,14 @@
         }
 
     }
+
+    @media screen and (max-width:640px){
+        .congrats{
+            padding: 20px;
+
+            .lom .bubble{
+                transform: translateY(-130%);
+            }
+        }
+    }
 </style>
