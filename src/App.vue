@@ -2,6 +2,21 @@
   <router-view/>
 </template>
 
+<script>
+
+  import {mapActions} from 'vuex';
+
+  export default{
+    name : 'App',
+    mounted(){
+      this.initApp();
+    },
+    methods : {
+      ...mapActions(['initApp'])
+    }
+  }
+</script>
+
 <style lang="scss">
 
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');

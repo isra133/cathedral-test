@@ -1,7 +1,7 @@
 <template>
     <div class="death-view row-center" :cinemamode="!gamedata.deathplayed">
 
-        <video id="video" autoplay controls>
+        <video id="video" autoplay controls playsinline muted>
             <source src="/img/video.mp4">
         </video>
 

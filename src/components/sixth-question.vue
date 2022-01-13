@@ -16,7 +16,7 @@
             <input type="text" id="question" class="nes-input" v-model="result">
         </div>
 
-        <button class="nes-btn" @click="validate">
+        <button class="nes-btn" @click="validate" v-if="!shownumbers">
             Validar
         </button>
 

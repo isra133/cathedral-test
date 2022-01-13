@@ -15,11 +15,16 @@
       <nineth-question v-if="gamedata.step == 9"></nineth-question>
       <tenth-question v-if="gamedata.step == 10"></tenth-question>
 
+      <final-view v-if="gamedata.step == 99"></final-view>
 
       <div class="stars-container row-around nes-container is-rounded" v-if="gamedata.step != 0">
         <i :class="['nes-icon', 'star', 'is-medium', (pos === null) ? 'is-empty' : '', (pos === false) ? 'is-transparent' : '']"
           v-for="(pos,key) in gamedata.results" :key="key"></i>
       </div>
+
+
+      <button  v-if="gamedata.results.every(e => e)" @click="resetgame" class="nes-btn reset-game">Reiniciar</button>
+
 
     </template>
 
@@ -37,7 +42,7 @@
 
 <script>
 
-  import { mapGetters} from 'vuex';
+  import { mapGetters,mapActions} from 'vuex';
 
 
   import intro from '@/components/intro';
@@ -55,8 +60,8 @@
 
   import deathview from '@/components/death-view';
   import showresult from '@/components/show-result';
+  import finalview from '@/components/final-view';
   
-
 
   export default {
     name: 'Home',
@@ -64,6 +69,9 @@
       ...mapGetters({
         gamedata: 'gameVars'
       })
+    },
+    methods : {
+      ...mapActions(['resetgame']),
     },
     components: {
       'intro': intro,
@@ -79,7 +87,7 @@
       'tenth-question': tenthquestion,
       'death-view': deathview,
       'show-result' : showresult,
-      
+      'final-view' : finalview,      
     }
   }
 </script>

@@ -21,6 +21,10 @@ $orange : #fc6619;
     font-family: 'Press Start 2P', cursive;
 }
 
+.nes-btn.reset-game{
+    margin-top: 30px;
+}
+
 .lom-container{
     display: flex;
     justify-content: center;
@@ -42,6 +46,11 @@ $orange : #fc6619;
     align-items: flex-end;
     justify-content: center;
     border: 4px solid white;
+
+    &[error=true]{
+        background: url(/img/lom-error-background.jpg) center/cover no-repeat;
+    }
+
     img{
         max-width: 100%;
     }

@@ -15,7 +15,7 @@
             </div>
 
 
-            <button class="nes-btn" @click="$emit('nextstep')">
+            <button class="nes-btn" @click="nextstep">
                 Acepto
             </button>
 
@@ -27,7 +27,13 @@
 
 
 <script>
+
+    import {mapActions} from 'vuex'
+
     export default{
-        name : 'intro'
+        name : 'intro',
+        methods : {
+            ...mapActions(['nextstep'])
+        }
     }
 </script>
