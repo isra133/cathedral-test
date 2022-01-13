@@ -1,14 +1,17 @@
 <template>
     <div class="death-view row-center" :cinemamode="!gamedata.deathplayed">
-        <iframe v-if="!gamedata.deathplayed" src="https://www.youtube.com/embed/hiGelaAeqDk?start=118&autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <video id="video" autoplay controls>
+            <source src="/img/video.mp4">
+        </video>
 
 
-        <div class="lom" v-else>
+        <div class="lom">
             <img src="https://robohash.org/LOM" alt="LOM">
 
             <div class="bubble nes-balloon from-left">
-                <h2 class="title">Lo siento mucho</h2>
-                <p>Has fallado y la humanidad no ha merecido vivir</p>
+                <h2 class="title">Tú lo has decidido...</h2>
+                <p>Te has rendido y has decidido acabar con ellos</p>
             </div>
         </div>
 
@@ -18,71 +21,99 @@
 
 <script>
 
-    import {mapGetters,mapActions} from 'vuex';
+    import { mapGetters, mapActions } from 'vuex';
 
-    export default{
-        name : 'death-view',
-        mounted(){
-            setTimeout(() => {
+    export default {
+        name: 'death-view',
+        mounted() {
+
+            const video = document.querySelector('video');
+            video.onended = () => {
                 this.deathplayed();
-            },16000)
+            };
+
         },
-        computed : {
+        computed: {
             ...mapGetters({
                 gamedata: 'gameVars'
             })
         },
-        methods : {
+        methods: {
             ...mapActions(['deathplayed'])
         }
-        
+
     }
 </script>
 
 
 <style lang="scss" scoped>
-    .death-view{
+    .death-view {
         position: absolute;
         left: 0;
         top: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0,0,0,.5);
+        background: rgba(0, 0, 0, .5);
         overflow: hidden;
 
         &::before,
-        &::after{
+        &::after {
             position: absolute;
-            left:0;
-            top:0;
-            width:100%;
-            height:150px;
-            background:black;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 150px;
+            background: black;
             z-index: 4;
-            content:'';
-            transition:.6s;
+            content: '';
+            transition: .6s;
+            transition-delay:1s;
             transition-timing-function: ease-in-out;
-            transform:translateY(-200px);
+            transform: translateY(-200px);
         }
 
-        &::after{
-            bottom:0;
+        &::after {
+            bottom: 0;
             top: auto;
-            transform:translateY(200px);
+            transform: translateY(200px);
         }
 
 
         &[cinemamode="true"]::after,
-        &[cinemamode="true"]::before{
-            transform:translateY(0px);
+        &[cinemamode="true"]::before {
+            transform: translateY(0px);
         }
 
-        iframe{
+        .lom{
+            transform: translateY(1000px);
+            transition: .8s;
+            transition-delay: 1.4s;
+            transition-timing-function: ease-in-out;
+        }
+
+        video {
             width: 100%;
             max-width: 1200px;
             height: 650px;
-            position: relative;
             z-index: 5;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            transition:.8s;
+            transition-timing-function: ease-in-out;
         }
+
+        &[cinemamode="false"]{
+            video{
+                transform: translate(-50%,-300%);
+            }
+
+            .lom{
+                transform: translate(0);
+            }
+        }
+
+        
     }
 </style>

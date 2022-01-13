@@ -3,12 +3,13 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     game : {
-      step : 9,
+      step : 10,
       TOTAL : 10,
       results : [null,null,null,null,null,null,null,null,null,null],
       showcongrats : false,
       showfail : false,
-      deathplayed : false
+      deathplayed : false,
+      annihilate : false
     }
   },
   getters :  {
@@ -28,10 +29,17 @@ export default createStore({
     },
     setWin(state, question){
       state.game.results[question] = true;
-      state.game.showcongrats = true;
+      if(question != 9){
+        state.game.showcongrats = true;
+      }else{
+        state.game.step = 99;
+      }
     },
     deathplayed(state){
       state.game.deathplayed = true
+    },
+    annihilate(state){
+      state.game.annihilate = true;
     }
   },
   actions: {
@@ -46,6 +54,9 @@ export default createStore({
     },
     deathplayed({commit}){
       commit('deathplayed');
+    },
+    annihilate({commit}){
+      commit('annihilate')
     }        
   },
 
