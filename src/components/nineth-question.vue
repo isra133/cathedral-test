@@ -1,16 +1,17 @@
 <template>
-    <div class="question-container nes-container is-rounded" @keyup="validate" tabindex="0">
+    <div class="question-container nes-container is-rounded" :error="!win" :result="showresult">
 
         <h1 class="title">Novena pregunta</h1>
-        <h2 class="question-title">Pulsa la tecla en tu teclado</h2>
+        <h2 class="question-title">Haz click en el corazón diferente</h2>
 
 
-        
-        <button class="nes-btn" @click="validate" v-if="!showresult">
-            Validar
-        </button>
+        <div class="hearts-container">
+            <img src="/img/hearts.png" alt="hearts" usemap="#hearts">
 
-        
+            <button class="win" @click="validate(true)" :show="showresult"></button>
+            <button class="lose" @click="validate(false)"></button>
+        </div>
+
 
     </div>
 
@@ -23,27 +24,37 @@
 
     export default {
         name: 'nineth-question',
-        mounted(){
-   
-        },
-        data : () => ({
-
+        data: () => ({
+            showresult: false,
+            win : true
         }),
         methods: {
             ...mapActions(['setFail', 'setWin']),
-            setGame(){
+            validate(win) {
 
-            },
-            validate(event) {
+                this.showresult = true;
+                this.win = win;
 
-                console.log(event)
+                setTimeout(() => {
+                    if(win){
+                        this.setWin(8)
+                    }else{
+                        this.setFail(8)
+                    }
+                }, 3000);
 
-                // if (this.selected == 3) {
-                //     this.setWin(0);
-                // } else {
-                //     this.setFail(0);
-                // }
             }
         }
     }
 </script>
+
+
+<style lang="scss" scoped>
+    .question-container[error="true"]{
+        background: rgba(255,0,0,.5);
+    }
+
+    .question-container[error="false"][result=true]{
+        background: rgba(0,255,0,.5);
+    }
+</style>

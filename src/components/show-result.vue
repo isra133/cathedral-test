@@ -158,6 +158,20 @@
                             "El resultado es 215,41",
                         ]
                     }
+                },
+                "9": {
+                    "congrats": {
+                        "title": "Buen ojo",
+                        "body": [
+                            "¡Acertaste!",
+                        ]
+                    },
+                    "error" : {
+                        "title": "Oh no",
+                        "body": [
+                            "Te equivocaste",
+                        ]
+                    }
                 }
             }
         }),
@@ -185,6 +199,7 @@
         width: 100%;
         height: 100%;
         padding: 100px;
+        z-index: 10;
 
         .nes-btn {
             position: absolute;
