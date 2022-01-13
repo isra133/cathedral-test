@@ -1,20 +1,20 @@
 <template>
     <div class="question-container nes-container is-rounded">
-        
+
         <h1 class="title">Segunda pregunta</h1>
 
         <h2 class="question-title">Resultado de la raíz cuadrada de 144</h2>
 
         <div class="nes-field">
             <label for="question">Escribe tu resultado aquí</label>
-            <input type="text" id="question" class="nes-input" v-model="result">
-          </div>
+            <input type="text" id="question" class="nes-input" v-model="result" @keyup.enter="validate">
+        </div>
 
 
         <button class="nes-btn" @click="validate">
             Validar
         </button>
-        
+
 
     </div>
 
@@ -22,15 +22,21 @@
 
 
 <script>
-    export default{
-        name : 'second-question',
-        data :() => ({
-            result : ''
+
+    import { mapActions } from 'vuex';
+
+    export default {
+        name: 'second-question',
+        data: () => ({
+            result: ''
         }),
-        methods : {
-            validate(){
-                if(this.result == "12"){
-                    this.$emit('nextstep')
+        methods: {
+            ...mapActions(['setFail', 'setWin']),
+            validate() {
+                if (this.result == "12") {
+                    this.setWin(1);
+                }else{
+                    this.setFail(1);
                 }
             }
         }

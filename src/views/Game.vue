@@ -1,17 +1,32 @@
 <template>
   <div class="wrapper column-center">
-    <intro @nextstep="nextstep" v-if="gamedata.step == 0"></intro>
-    <first-question @nextstep="nextstep" v-if="gamedata.step == 1"></first-question>
-    <second-question @nextstep="nextstep" v-if="gamedata.step == 2"></second-question>
-    <thrid-question @nextstep="nextstep" v-if="gamedata.step == 3"></thrid-question>
-    <fourth-question @nextstep="nextstep" v-if="gamedata.step == 4"></fourth-question>
-    <fifth-question @nextstep="nextstep" v-if="gamedata.step == 5"></fifth-question>
-    <sixth-question @nextstep="nextstep" v-if="gamedata.step == 6"></sixth-question>
+
+    <template v-if="!gamedata.death">
+
+      <intro @nextstep="nextstep" v-if="gamedata.step == 0"></intro>
+      <first-question @nextstep="nextstep" v-if="gamedata.step == 1"></first-question>
+      <second-question @nextstep="nextstep" v-if="gamedata.step == 2"></second-question>
+      <thrid-question @nextstep="nextstep" v-if="gamedata.step == 3"></thrid-question>
+      <fourth-question @nextstep="nextstep" v-if="gamedata.step == 4"></fourth-question>
+      <fifth-question @nextstep="nextstep" v-if="gamedata.step == 5"></fifth-question>
+      <sixth-question @nextstep="nextstep" v-if="gamedata.step == 6"></sixth-question>
+      <seventh-question @nextstep="nextstep" v-if="gamedata.step == 7"></seventh-question>
 
 
-    <div class="stars-container row-around nes-container is-rounded" v-if="gamedata.step != 0">
-      <i :class="['nes-icon', 'star', 'is-medium', (gamedata.step <= pos) ? 'is-transparent' : '']" v-for="(pos,key) in gamedata.TOTAL" :key="key"></i>
-    </div>
+      <div class="stars-container row-around nes-container is-rounded" v-if="gamedata.step != 0">
+        <i :class="['nes-icon', 'star', 'is-medium', (pos === null) ? 'is-empty' : '', (pos === false) ? 'is-transparent' : '']"
+          v-for="(pos,key) in gamedata.results" :key="key"></i>
+      </div>
+
+    </template>
+
+    <death-view v-else></death-view>
+
+    <show-result v-if="gamedata.showcongrats || gamedata.showfail"></show-result>
+    
+
+
+    <!-- CORRIGE LO DE LA MUERTE -->
 
 
   </div>
@@ -19,8 +34,8 @@
 
 <script>
 
-  import { mapGetters,mapActions } from 'vuex';
-  
+  import { mapGetters, mapActions } from 'vuex';
+
 
   import intro from '@/components/intro';
   import firstquestion from '@/components/first-question'
@@ -29,7 +44,13 @@
   import fourthquestion from '@/components/fourth-question'
   import fifthquestion from '@/components/fifth-question'
   import sixthquestion from '@/components/sixth-question'
+  import seventhquestion from '@/components/seventh-question'
+
+
+  import deathview from '@/components/death-view';
+  import showresult from '@/components/show-result';
   
+
 
   export default {
     name: 'Home',
@@ -38,17 +59,21 @@
         gamedata: 'gameVars'
       })
     },
-    methods : {
+    methods: {
       ...mapActions(['nextstep']),
     },
     components: {
-      'intro' : intro,
-      'first-question' : firstquestion,
-      'second-question' : secondquestion,
-      'thrid-question' : thridquestion,
-      'fourth-question' : fourthquestion,
-      'fifth-question' : fifthquestion,
-      'sixth-question' : sixthquestion
+      'intro': intro,
+      'first-question': firstquestion,
+      'second-question': secondquestion,
+      'thrid-question': thridquestion,
+      'fourth-question': fourthquestion,
+      'fifth-question': fifthquestion,
+      'sixth-question': sixthquestion,
+      'seventh-question': seventhquestion,
+      'death-view': deathview,
+      'show-result' : showresult,
+      
     }
   }
 </script>

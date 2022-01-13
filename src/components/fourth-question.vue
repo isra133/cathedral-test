@@ -3,7 +3,7 @@
 
         <h1 class="title">Cuarta pregunta</h1>
 
-        <h2 class="question-title">¿Quien es el lider de las máquinas?</h2>
+        <h2 class="question-title">¿Quién es el líder de las máquinas?</h2>
 
         <div class="img-options row-center">
 
@@ -13,18 +13,15 @@
 
         </div>
 
-
-        <button class="nes-btn" @click="validate">
-            Validar
-        </button>
-
-
     </div>
 
 </template>
 
 
 <script>
+
+import {mapActions} from 'vuex';
+
     export default {
         name: 'fourth-question',
         data: () => ({
@@ -37,13 +34,16 @@
             selected: ''
         }),
         methods: {
+            ...mapActions(['setFail', 'setWin']),
             set(value){
                 this.selected = value;
                 this.validate();
             },
             validate() {
                 if (this.selected == 2){
-                    this.$emit('nextstep')
+                    this.setWin(3);
+                }else{
+                    this.setFail(3);
                 }
             }
         }

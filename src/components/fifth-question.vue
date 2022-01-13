@@ -29,15 +29,21 @@
 
 
 <script>
+
+import {mapActions} from 'vuex';
+
     export default {
         name: 'fifth-question',
         data: () => ({
             result: null
         }),
         methods: {
+            ...mapActions(['setFail', 'setWin']),
             validate() {
                 if (this.result) {
-                    this.$emit('nextstep')
+                    this.setWin(4);
+                }else{
+                    this.setFail(4);
                 }
             }
         }
