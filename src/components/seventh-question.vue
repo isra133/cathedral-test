@@ -50,7 +50,7 @@
             this.setGame();
         },
         data: () => ({
-            options: ['Avestruz', 'Murcielago', "Lagarto", "Humanidad", "Programa", "Estrella", "Montaña", "Cielo", "Pantalla"],
+            options: ['Avestruz', 'Planeta', "Lagarto", "Humanidad", "Programa", "Estrella", "Montaña", "Cielo", "Pantalla"],
             result: '',
             selected: '',
             showresult: false,

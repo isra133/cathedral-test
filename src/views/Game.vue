@@ -4,13 +4,15 @@
     <template v-if="!gamedata.death">
 
       <intro @nextstep="nextstep" v-if="gamedata.step == 0"></intro>
-      <first-question @nextstep="nextstep" v-if="gamedata.step == 1"></first-question>
-      <second-question @nextstep="nextstep" v-if="gamedata.step == 2"></second-question>
-      <thrid-question @nextstep="nextstep" v-if="gamedata.step == 3"></thrid-question>
-      <fourth-question @nextstep="nextstep" v-if="gamedata.step == 4"></fourth-question>
-      <fifth-question @nextstep="nextstep" v-if="gamedata.step == 5"></fifth-question>
-      <sixth-question @nextstep="nextstep" v-if="gamedata.step == 6"></sixth-question>
-      <seventh-question @nextstep="nextstep" v-if="gamedata.step == 7"></seventh-question>
+      <first-question v-if="gamedata.step == 1"></first-question>
+      <second-question v-if="gamedata.step == 2"></second-question>
+      <thrid-question v-if="gamedata.step == 3"></thrid-question>
+      <fourth-question v-if="gamedata.step == 4"></fourth-question>
+      <fifth-question v-if="gamedata.step == 5"></fifth-question>
+      <sixth-question v-if="gamedata.step == 6"></sixth-question>
+      <seventh-question v-if="gamedata.step == 7"></seventh-question>
+      <eighth-question v-if="gamedata.step == 8"></eighth-question>
+      <nineth-question v-if="gamedata.step == 9"></nineth-question>
 
 
       <div class="stars-container row-around nes-container is-rounded" v-if="gamedata.step != 0">
@@ -34,7 +36,7 @@
 
 <script>
 
-  import { mapGetters, mapActions } from 'vuex';
+  import { mapGetters} from 'vuex';
 
 
   import intro from '@/components/intro';
@@ -45,6 +47,8 @@
   import fifthquestion from '@/components/fifth-question'
   import sixthquestion from '@/components/sixth-question'
   import seventhquestion from '@/components/seventh-question'
+  import eighthquestion from '@/components/eighth-question'
+  import ninethquestion from '@/components/nineth-question'
 
 
   import deathview from '@/components/death-view';
@@ -59,9 +63,6 @@
         gamedata: 'gameVars'
       })
     },
-    methods: {
-      ...mapActions(['nextstep']),
-    },
     components: {
       'intro': intro,
       'first-question': firstquestion,
@@ -71,6 +72,8 @@
       'fifth-question': fifthquestion,
       'sixth-question': sixthquestion,
       'seventh-question': seventhquestion,
+      'eighth-question': eighthquestion,
+      'nineth-question': ninethquestion,
       'death-view': deathview,
       'show-result' : showresult,
       

@@ -144,6 +144,20 @@
                             "No la adivinaste.",
                         ]
                     }
+                },
+                "8": {
+                    "congrats": {
+                        "title": "Bien calculado",
+                        "body": [
+                            "El resultado es 215,41",
+                        ]
+                    },
+                    "error" : {
+                        "title": "Oh no, calculaste mal",
+                        "body": [
+                            "El resultado es 215,41",
+                        ]
+                    }
                 }
             }
         }),
