@@ -11,7 +11,7 @@
         </div>
 
 
-        <button :class="['nes-btn',(!!!result) ? 'is-disabled' : '']" @click="validate">
+        <button :class="['nes-btn',(!result) ? 'is-disabled' : '']" @click="validate">
             Validar
         </button>
 
@@ -33,10 +33,12 @@
         methods: {
             ...mapActions(['setFail', 'setWin']),
             validate() {
-                if (this.result == "12") {
-                    this.setWin(1);
-                }else{
-                    this.setFail(1);
+                if (this.result) {
+                    if (this.result == "12") {
+                        this.setWin(1);
+                    } else {
+                        this.setFail(1);
+                    }
                 }
             }
         }

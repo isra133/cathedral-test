@@ -44,8 +44,10 @@ import {mapActions} from 'vuex';
         methods : {
             ...mapActions(['setFail', 'setWin']),
             validate(){
-                let itsok = this.badwords.some(word => word.toLowerCase() == this.result.toLowerCase());
-                (itsok) ? this.setWin(2) : this.setFail(2);
+                if(this.result){
+                    let itsok = this.badwords.some(word => word.toLowerCase() == this.result.toLowerCase());
+                    (itsok) ? this.setWin(2) : this.setFail(2);
+                }
             }
         }
     }
