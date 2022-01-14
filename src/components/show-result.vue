@@ -223,4 +223,16 @@
             }
         }
     }
+
+    @media screen and (max-width:400px){
+        .congrats{
+            align-items: flex-end;
+            padding-bottom: 150px;
+
+            .nes-btn{
+                bottom: -70px;
+            }
+        }
+    }
+
 </style>
