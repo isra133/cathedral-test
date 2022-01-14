@@ -2,7 +2,7 @@
     <div class="death-view row-center" :cinemamode="!gamedata.deathplayed">
 
         <video id="video" autoplay controls playsinline muted>
-            <source src="/img/video.mp4">
+            <source src="/img/video.mp4" type="video/mp4">
         </video>
 
 
@@ -55,6 +55,7 @@
         height: 100%;
         background: rgba(0, 0, 0, .5);
         overflow: hidden;
+        padding: 20px;
 
         &::before,
         &::after {
@@ -89,6 +90,11 @@
             transition: .8s;
             transition-delay: 1.4s;
             transition-timing-function: ease-in-out;
+            margin-top: 100px;
+        }
+
+        .lom .bubble{
+            transform: translateY(-120%);
         }
 
         video {
@@ -102,7 +108,6 @@
             transform: translate(-50%,-50%);
             transition:.8s;
             transition-timing-function: ease-in-out;
-            border: 1px solid red;
         }
 
         &[cinemamode="false"]{

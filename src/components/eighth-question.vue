@@ -92,7 +92,7 @@
     @media screen and (max-width:420px) {
 
         .triangle-container .left{
-            left: -30px;
+            left: -35px;
         }
 
         .triangle-container .left,
